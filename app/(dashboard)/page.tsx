@@ -15,10 +15,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="container pt-4">
+    <div className="container py-4">
       <Suspense fallback={<StatsCards loading={true} />}>
         <CardStatsWrapper />
       </Suspense>
@@ -130,7 +131,7 @@ export function StatsCard({
 }
 
 function FormCardSkeleton() {
-  return <Skeleton className="border-2 border-primary-/20 h-[190px] w-full" />;
+  return <Skeleton className="border-2 border-primary-/20 h-[240px] w-full" />;
 }
 
 async function FormCards() {
@@ -170,19 +171,27 @@ function FormCard({ form }: { form: Form }) {
       <CardContent className="h-[20px] truncate text-sm text-muted-foreground">
         {form.description || "No description"}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-col gap-3">
         {form.published && (
-          <Button asChild className="w-full mt-2 text-md gap-4">
-            <Link href={`/forms/${form.id}`}>
-              View submissions <BiRightArrowAlt />
+          <Button asChild className="w-full flex justify-between items-center mt-2 text-md gap-4">
+            <Link href={`/forms/${form.id}`} className="w-full flex justify-between items-center">
+              <span className="flex-grow text-center">View submissions</span>
+              <BiRightArrowAlt className="ml-2" />
             </Link>
           </Button>
         )}
         {!form.published && (
-          <Button asChild variant={"secondary"} className="w-full mt-2 text-md gap-4">
-            <Link href={`/builder/${form.id}`}>
-              Edit form <FaEdit />
+          <Button asChild variant="secondary" className="w-full flex justify-between items-center mt-2 text-md gap-4">
+            <Link href={`/builder/${form.id}`} className="w-full flex justify-between items-center">
+              <span className="flex-grow text-center">Edit form</span>
+              <FaEdit className="ml-2" />
             </Link>
+          </Button>
+        )}
+        {(form.published || !form.published) && (
+          <Button className="w-full flex justify-between items-center mt-2 text-md gap-4" variant="destructive">
+            <span className="flex-grow text-center">Delete Form</span>
+            <FaTrash className="ml-2" />
           </Button>
         )}
       </CardFooter>
