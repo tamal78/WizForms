@@ -3,6 +3,7 @@
 import prisma from "@/lib/prisma";
 import { formSchema, formSchemaType } from "@/schemas/form";
 import { currentUser } from "@clerk/nextjs";
+import { revalidatePath } from "next/cache";
 
 class UserNotFoundErr extends Error {}
 
@@ -65,6 +66,7 @@ export async function CreateForm(data: formSchemaType) {
   if (!form) {
     throw new Error("something went wrong");
   }
+  revalidatePath("/");
 
   return form.id;
 }
@@ -183,4 +185,26 @@ export async function GetFormWithSubmissions(id: number) {
       FormSubmissions: true,
     },
   });
+}
+
+export async function deleteForm(id: number) {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+
+  await prisma.formSubmissions.deleteMany({
+    where: {
+      formId: id,
+    },
+  });
+
+  await prisma.form.delete({
+    where: {
+      id: id,
+      userId: user.id,
+    },
+  });
+
+  revalidatePath("/");
 }

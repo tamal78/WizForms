@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
+import DeleteFormBtn from "@/components/DeleteFormBtn";
 
 export default function Home() {
   return (
@@ -188,12 +188,7 @@ function FormCard({ form }: { form: Form }) {
             </Link>
           </Button>
         )}
-        {(form.published || !form.published) && (
-          <Button className="w-full flex justify-between items-center mt-2 text-md gap-4" variant="destructive">
-            <span className="flex-grow text-center">Delete Form</span>
-            <FaTrash className="ml-2" />
-          </Button>
-        )}
+        {(form.published || !form.published) && <DeleteFormBtn formId={form.id} />}
       </CardFooter>
     </Card>
   );
