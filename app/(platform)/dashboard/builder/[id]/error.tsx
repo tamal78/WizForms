@@ -29,7 +29,7 @@ export default function ErrorPage({ error }: { error: Error }) {
                 variant={"secondary"}
                 className="inline-flex items-center rounded-md border px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 "
               >
-                <Link href={"/"}>
+                <Link href={"/dashboard"}>
                   <FaArrowLeft size={16} className="mr-2" />
                   Go back
                 </Link>

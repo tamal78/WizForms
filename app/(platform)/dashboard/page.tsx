@@ -174,7 +174,7 @@ function FormCard({ form }: { form: Form }) {
       <CardFooter className="flex flex-col gap-3">
         {form.published && (
           <Button asChild className="w-full flex justify-between items-center mt-2 text-md gap-4">
-            <Link href={`/forms/${form.id}`} className="w-full flex justify-between items-center">
+            <Link href={`/dashboard/forms/${form.id}`} className="w-full flex justify-between items-center">
               <span className="flex-grow text-center">View submissions</span>
               <BiRightArrowAlt className="ml-2" />
             </Link>
@@ -182,7 +182,7 @@ function FormCard({ form }: { form: Form }) {
         )}
         {!form.published && (
           <Button asChild variant="secondary" className="w-full flex justify-between items-center mt-2 text-md gap-4">
-            <Link href={`/builder/${form.id}`} className="w-full flex justify-between items-center">
+            <Link href={`/dashboard/builder/${form.id}`} className="w-full flex justify-between items-center">
               <span className="flex-grow text-center">Edit form</span>
               <FaEdit className="ml-2" />
             </Link>

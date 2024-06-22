@@ -1,13 +1,24 @@
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { UserButton } from "@clerk/nextjs";
 import React, { ReactNode } from "react";
+
+export async function generateMetadata() {
+  return {
+    title: "Dashboard",
+    description: "Create Forms, Analyze Forms, and reach new productivity peaks",
+  };
+}
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col min-h-screen min-w-full bg-background max-h-screen h-screen">
+    <div className="flex flex-col min-h-screen min-w-full bg-background max-h-screen">
       <nav className="flex justify-between items-center border-b border-border h-[60px] px-4 py-2">
         <Logo />
-        <ThemeSwitcher />
+        <div className="flex gap-4 items-center">
+          <ThemeSwitcher />
+          <UserButton afterSignOutUrl="/" />
+        </div>
       </nav>
       <main className="flex w-full flex-grow">{children}</main>
     </div>
