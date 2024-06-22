@@ -1,5 +1,6 @@
 import { GetFormById, GetFormWithSubmissions } from "@/actions/form";
 import FormLinkShare from "@/components/FormLinkShare";
+import DownloadCsvBtn from "@/components/DownloadCsvBtn";
 import VisitBtn from "@/components/VisitBtn";
 import React, { ReactNode } from "react";
 import { StatsCard } from "../../page";
@@ -146,35 +147,44 @@ async function SubmissionsTable({ id }: { id: number }) {
 
   return (
     <>
-      <h1 className="text-2xl font-bold my-4">Submissions</h1>
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              {columns.map((column) => (
-                <TableHead key={column.id} className="uppercase">
-                  {column.label}
-                </TableHead>
-              ))}
-              <TableHead className="text-muted-foreground text-right uppercase">Submitted at</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {rows.map((row, index) => (
-              <TableRow key={index}>
-                {columns.map((column) => (
-                  <RowCell key={column.id} type={column.type} value={row[column.id]} />
-                ))}
-                <TableCell className="text-muted-foreground text-right">
-                  {formatDistance(row.submittedAt, new Date(), {
-                    addSuffix: true,
-                  })}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold my-5">Submissions</h1>
+        <div>
+          <DownloadCsvBtn columns={columns} rows={rows} name={form.name} />
+        </div>
       </div>
+      {!rows || rows.length == 0 ? (
+        <p className="text-2xl text-center p-3">No Submissions Yet</p>
+      ) : (
+        <div className="rounded-md border mb-3">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableHead key={column.id} className="uppercase">
+                    {column.label}
+                  </TableHead>
+                ))}
+                <TableHead className="text-muted-foreground text-right uppercase">Submitted at</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {rows.map((row, index) => (
+                <TableRow key={index}>
+                  {columns.map((column) => (
+                    <RowCell key={column.id} type={column.type} value={row[column.id]} />
+                  ))}
+                  <TableCell className="text-muted-foreground text-right">
+                    {formatDistance(row.submittedAt, new Date(), {
+                      addSuffix: true,
+                    })}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
     </>
   );
 }

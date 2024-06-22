@@ -147,10 +147,7 @@ export default function LandinngPage() {
             ))}
           </div>
           <p className="mt-10 text-center">
-            Can&apos;t find what you&apos;re looking for?{" "}
-            <a href="/contact" className="text-black font-semibold hover:underline">
-              Contact us
-            </a>
+            Can&apos;t find what you&apos;re looking for? <a className="font-semibold hover:underline">Contact us</a>
           </p>
         </div>
       </section>

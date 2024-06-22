@@ -22,7 +22,7 @@ function FormLinkShare({ shareUrl }: { shareUrl: string }) {
     <div className="flex flex-grow gap-4 items-center">
       <Input value={shareLink} readOnly />
       <Button
-        className="w-[250px]"
+        className="w-[200px]"
         onClick={() => {
           navigator.clipboard.writeText(shareLink);
           toast({
@@ -32,7 +32,7 @@ function FormLinkShare({ shareUrl }: { shareUrl: string }) {
         }}
       >
         <ImShare className="mr-2 h-4 w-4" />
-        Share link
+        Copy link
       </Button>
     </div>
   );

@@ -32,7 +32,7 @@ export default function Page() {
               <Link href={"/sign-in"}>Login</Link>
             </Button>
             <Button asChild>
-              <Link href={"/sign-up"}>Start Building Forms</Link>
+              <Link href={"/sign-up"}>Get Started</Link>
             </Button>
           </SignedOut>
         </div>
