@@ -145,7 +145,10 @@ export default function LandinngPage() {
             ))}
           </div>
           <p className="mt-10 text-center">
-            Can't find what you're looking for? <a className="text-black font-semibold hover:underline">Contact us</a>
+            Can&apos;t find what you&apos;re looking for?{" "}
+            <a href="/contact" className="text-black font-semibold hover:underline">
+              Contact us
+            </a>
           </p>
         </div>
       </section>
@@ -153,7 +156,7 @@ export default function LandinngPage() {
       {/* Pricing Section */}
       <section className="relative my-12 overflow-hidden py-10 md:my-24 lg:my-32">
         <div className="relative mx-auto max-w-7xl px-4">
-          <p className="flex justify-center text-4xl font-semibold mb-5">Pricing</p>
+          <p className="flex justify-center text-4xl font-semibold pb-10">Pricing</p>
           <div className="mx-auto max-w-5xl">
             <div className="flex items-center justify-center">
               {/* Always Free Plan */}
