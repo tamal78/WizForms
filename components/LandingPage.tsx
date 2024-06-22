@@ -56,7 +56,7 @@ export default function LandinngPage() {
       </div>
 
       {/* Features Section */}
-      <div className="mx-auto my-12 max-w-7xl px-4 sm:px-6 md:my-24 lg:my-32 lg:px-8">
+      <div className="mx-auto my-12 max-w-7xl px-4 sm:px-6 md:my-24 lg:my-32 lg:px-10">
         <div className="mx-auto max-w-xl text-center">
           <div className="mx-auto inline-flex rounded-full px-4 py-1.5">
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">Your Form Comapnion</p>
@@ -109,7 +109,7 @@ export default function LandinngPage() {
       </div>
 
       {/* FAQs */}
-      <section className="mx-auto max-w-7xl px-2 py-10 md:px-0">
+      <section className="mx-auto max-w-7xl px-5 py-10 md:px-10">
         <div>
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
@@ -244,16 +244,16 @@ export default function LandinngPage() {
       </section>
 
       {/* NewsLetter */}
-      <div className="mx-auto my-12 max-w-7xl px-2 py-2 md:my-24 lg:my-32 lg:px-0">
+      <div className="mx-auto my-12 max-w-7xl px-5 py-2 md:my-24 lg:my-32 md:px-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full md:w-2/3 lg:w-1/2">
             <h2 className="text-3xl font-bold ">Sign up for our weekly newsletter</h2>
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 text-gray-400 md:w-2/3">
               Stay updated with the latest news, tips, and insights delivered straight to your inbox and enjoy at your
               comfort.
             </p>
             <div className="mt-4">
-              <p className="font-semibold text-gray-400">Trusted by over 100,000+ businesses and individuals</p>
+              <p className="font-semibold text-gray-400">Trusted by over 1,000+ Users</p>
               <div className="mt-2 flex items-center">
                 <div className="flex space-x-1">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -261,7 +261,7 @@ export default function LandinngPage() {
                   ))}
                 </div>
                 <span className="ml-2 inline-block">
-                  <span className="text-sm font-semibold text-gray-400">4.8/5 . 3420 Reviews</span>
+                  <span className="text-sm font-semibold text-gray-400">4.8/5 . 200 Reviews</span>
                 </span>
               </div>
             </div>
